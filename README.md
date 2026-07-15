@@ -20,7 +20,7 @@ Tout le travail de mise en page (charte graphique, polices, structure des 23 pag
 ## Installation
 
 ```bash
-git clone <URL_DU_REPO> cap-voyage-ebook-kit
+git clone https://github.com/contactromanceagency-fr/cap-voyage-ebook-kit.git
 cd cap-voyage-ebook-kit
 claude
 ```
