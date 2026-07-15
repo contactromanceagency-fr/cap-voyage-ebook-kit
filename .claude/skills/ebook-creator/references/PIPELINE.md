@@ -2,6 +2,8 @@
 
 Dossier de travail : un dossier de scratch/temp (ex `~/Desktop/ebook-tmp/`, ou le scratchpad de session si Claude Code en propose un). Y copier d'abord `assets/style.css`, `assets/fonts/` (dossier `fonts/`), `assets/logo-capvoyage.svg` (en `img/logo.svg`), et `example/thailande.html` comme squelette de départ (copier sa structure de balises, pas son contenu Thaïlande).
 
+**Windows** : les commandes de ce fichier sont en syntaxe bash (curl, pipes). Utiliser Claude Code sous WSL2 (Ubuntu) pour que le shell exécute tout tel quel — sinon adapter au shell natif (PowerShell/Git Bash).
+
 ## 1. Photos Wikimedia Commons
 
 ```bash
@@ -18,10 +20,21 @@ PIL (`pip3 install pillow` si absent) : thumbnails 320px collés sur une grille 
 
 ## 3. Génération PDF
 
+Mac :
 ```bash
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu \
   --no-pdf-header-footer --virtual-time-budget=12000 \
   --print-to-pdf="$PWD/volume.pdf" "file://$PWD/volume.html"
+```
+
+Windows (WSL, Chrome installé côté Windows — chemin par défaut) :
+```bash
+"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" --headless --disable-gpu \
+  --no-pdf-header-footer --virtual-time-budget=12000 \
+  --print-to-pdf="$(wslpath -w "$PWD/volume.pdf")" "file://$PWD/volume.html"
+```
+
+```bash
 pdfinfo volume.pdf | grep Pages   # attendu : 23
 ```
 
@@ -33,5 +46,5 @@ pdfinfo volume.pdf | grep Pages   # attendu : 23
 - `.inner` est en flex-column : la classe **`.push`** (`margin-top:auto`) pinne un bloc en bas de page — c'est l'outil anti-« bas de page vide ».
 - Si une page a un creux central : bande photo `<div style="height:40mm;background:url(...) center/cover;">` entre le contenu et le bloc pinné.
 - Cadrage d'une photo dans une bande : jouer `background-position` (`center 30%`…), vérifier au QC.
-- `pdftoppm` (poppler) requis pour le QC visuel : `brew install poppler` si absent.
+- `pdftoppm` (poppler) requis pour le QC visuel : `brew install poppler` (Mac) ou `sudo apt install poppler-utils` (Windows/WSL Ubuntu).
 - Vérifier TOUTES les pages au QC (une seule passe Read du PDF entier) ; corriger puis ne relire que les pages touchées.

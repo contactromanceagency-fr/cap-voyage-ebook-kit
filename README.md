@@ -4,18 +4,22 @@ Kit prêt à l'emploi pour générer les guides voyage PDF **Cap Voyage** (même
 
 Tout le travail de mise en page (charte graphique, polices, structure des 23 pages, mécanique de vente) est déjà encodé dans le skill `.claude/skills/ebook-creator/`. Pour un nouveau volume, tu n'as plus qu'à donner le pays à Claude : il source les photos, écrit le contenu, génère le PDF et se corrige tout seul si une page déborde.
 
-## Prérequis (Mac)
+## Prérequis
 
 1. **Claude Code** installé et un abonnement Claude actif → [claude.com/claude-code](https://claude.com/claude-code)
 2. **Google Chrome** installé (sert de moteur de génération PDF en arrière-plan)
-3. **Poppler** (outil de contrôle qualité des PDF) :
-   ```bash
-   brew install poppler
-   ```
-4. **Pillow** (Python, sert à assembler les planches contact photos) :
-   ```bash
-   pip3 install pillow
-   ```
+3. **Pillow** (Python, sert à assembler les planches contact photos) : `pip3 install pillow` (ou `pip install pillow`)
+
+**Sur Mac :**
+```bash
+brew install poppler   # outil de contrôle qualité des PDF
+```
+
+**Sur Windows :** les commandes du skill sont en syntaxe bash, donc installer Claude Code sous **WSL2 (Ubuntu)** plutôt qu'en PowerShell natif — c'est ce qui évite le plus de frictions. Une fois dans WSL :
+```bash
+sudo apt install poppler-utils
+```
+Chrome reste celui installé côté Windows, le pipeline va le chercher via son chemin par défaut (`/mnt/c/Program Files/Google/Chrome/...`) — voir `references/PIPELINE.md` section 3 si le chemin diffère chez toi.
 
 ## Installation
 
