@@ -1,0 +1,196 @@
+@font-face{font-family:'Sacramento';font-weight:400;font-style:normal;src:url('fonts/Sacramento-400.woff2') format('woff2');}
+@font-face{font-family:'Oswald';font-weight:300;font-style:normal;src:url('fonts/Oswald-300.woff2') format('woff2');}
+@font-face{font-family:'Oswald';font-weight:500;font-style:normal;src:url('fonts/Oswald-500.woff2') format('woff2');}
+@font-face{font-family:'Oswald';font-weight:600;font-style:normal;src:url('fonts/Oswald-600.woff2') format('woff2');}
+@font-face{font-family:'Oswald';font-weight:700;font-style:normal;src:url('fonts/Oswald-700.woff2') format('woff2');}
+@font-face{font-family:'PT Serif';font-weight:400;font-style:italic;src:url('fonts/PTSerif-400i.woff2') format('woff2');}
+@font-face{font-family:'PT Serif';font-weight:400;font-style:normal;src:url('fonts/PTSerif-400.woff2') format('woff2');}
+@font-face{font-family:'PT Serif';font-weight:700;font-style:normal;src:url('fonts/PTSerif-700.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:400;font-style:normal;src:url('fonts/Montserrat-400.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:600;font-style:normal;src:url('fonts/Montserrat-600.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:700;font-style:normal;src:url('fonts/Montserrat-700.woff2') format('woff2');}
+@font-face{font-family:'Montserrat';font-weight:800;font-style:normal;src:url('fonts/Montserrat-800.woff2') format('woff2');}
+
+:root{
+  --magenta:#D81E5B; --navy:#22374F; --gold:#F0A32F; --turq:#1F9E97;
+  --red:#E8503A; --pink:#F7CBDA; --cream:#F5F2ED; --ink:#2B2B2B; --grey:#8A8A8A;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+@page{size:A4;margin:0;}
+html,body{font-family:'PT Serif',serif;color:var(--ink);}
+.page{width:210mm;height:296.8mm;position:relative;overflow:hidden;page-break-after:always;background:#fff;}
+.page:last-child{page-break-after:auto;}
+
+/* ---------- helpers ---------- */
+.os{font-family:'Oswald',sans-serif;}
+.ms{font-family:'Montserrat',sans-serif;}
+.script{font-family:'Sacramento',cursive;font-weight:400;}
+
+/* cadre photo autour des pages contenu */
+.frame{position:absolute;inset:0;background-size:cover;background-position:center;}
+.inner{position:absolute;inset:7mm;background:#fff;padding:9mm 12mm 9mm;display:flex;flex-direction:column;}
+.inner>*{flex:0 0 auto;}
+.push{margin-top:auto !important;}
+.backlink{position:absolute;top:2.2mm;left:7mm;font-family:'Montserrat',sans-serif;font-size:6.5px;font-weight:800;letter-spacing:2px;color:#fff;z-index:5;}
+.backlink.dark{color:var(--ink);}
+.sidetag{position:absolute;right:2mm;bottom:16mm;writing-mode:vertical-rl;font-family:'Montserrat',sans-serif;font-size:7px;font-weight:800;letter-spacing:4px;color:#fff;z-index:5;}
+.pagenum{position:absolute;right:2.5mm;bottom:6mm;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:800;color:#fff;z-index:5;}
+
+/* titres de page contenu */
+.kicker{text-align:center;font-family:'Oswald',sans-serif;font-weight:500;font-size:13px;letter-spacing:9px;color:var(--ink);margin-bottom:1mm;}
+h1.big{text-align:center;font-family:'Oswald',sans-serif;font-weight:700;font-size:44px;letter-spacing:10px;color:var(--magenta);line-height:1.05;margin-bottom:2.5mm;}
+.title-orn{display:block;width:14mm;margin:0 auto 6mm;text-align:center;font-size:12px;color:var(--magenta);letter-spacing:3px;}
+
+.lead{width:82%;margin:0 auto 6mm;text-align:center;font-size:14.5px;line-height:1.58;}
+.lead b{color:var(--ink);}
+.cols{column-count:2;column-gap:8mm;font-size:14px;line-height:1.55;text-align:left;}
+.cols p{margin-bottom:3.6mm;}
+.sub{font-family:'Montserrat',sans-serif;font-weight:800;font-size:12px;letter-spacing:.5px;margin-bottom:1.2mm;text-transform:uppercase;}
+.sub.mag{color:var(--magenta);} .sub.turq{color:var(--turq);} .sub.gold{color:#D98C13;} .sub.red{color:var(--red);} .sub.navy{color:var(--navy);}
+.cols b.hl{color:var(--magenta);}
+
+/* encart tip */
+.tip{break-inside:avoid;background:#FEF3DE;border-left:3px solid var(--gold);padding:3.5mm 4mm;margin:0 0 4.2mm;}
+.tip .tt{font-family:'Montserrat',sans-serif;font-weight:800;font-size:8.5px;letter-spacing:2px;color:#C97F10;margin-bottom:1mm;}
+.tip p{font-size:13px;line-height:1.48;margin:0;}
+.tip.rose{background:#FBE4ED;border-left-color:var(--magenta);} .tip.rose .tt{color:var(--magenta);}
+.tip.mer{background:#E2F2F1;border-left-color:var(--turq);} .tip.mer .tt{color:var(--turq);}
+
+/* liste prix */
+.pricelist{font-size:13px;line-height:1.48;}
+.pricelist li{list-style:none;display:flex;justify-content:space-between;border-bottom:1px dotted #ccc;padding:1.9mm 0;}
+.pricelist .d{color:var(--grey);font-size:9.5px;}
+.pricelist b{font-family:'Montserrat',sans-serif;font-size:10px;}
+
+/* ============ PAGE 1 : COUVERTURE ============ */
+.cover{background:url('img/cover_railay.jpg') center/cover;}
+.cover .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,45,.38) 0%,rgba(10,30,45,0) 30%,rgba(10,30,45,0) 55%,rgba(8,25,40,.55) 100%);}
+.cover .top{position:absolute;top:13mm;left:0;right:0;text-align:center;color:#fff;}
+.cover .script-title{font-size:118px;line-height:.9;text-shadow:0 2px 18px rgba(0,0,0,.35);}
+.cover .tagline{margin-top:4mm;font-family:'Oswald',sans-serif;font-weight:600;font-size:13.5px;letter-spacing:5px;text-shadow:0 1px 8px rgba(0,0,0,.5);}
+.cover .banner{display:inline-block;margin-top:6mm;background:var(--turq);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;font-size:17px;letter-spacing:6px;padding:3mm 8mm;}
+.cover .bottom{position:absolute;bottom:11mm;left:0;right:0;text-align:center;color:#fff;}
+.cover .vol{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;letter-spacing:4px;margin-top:1.5mm;}
+.wordmark{font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;letter-spacing:6px;color:#fff;}
+.cover .promise{position:absolute;bottom:47mm;left:0;right:0;text-align:center;}
+.cover .promise span{display:inline-block;background:rgba(255,255,255,.94);color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:1.5px;padding:2.4mm 5.5mm;}
+
+/* ============ PAGE 2 : SOMMAIRE ============ */
+.toc{background:var(--cream);}
+.toc .giant{position:absolute;top:12mm;left:13mm;font-family:'Montserrat',sans-serif;font-weight:800;font-size:168px;line-height:.9;color:var(--pink);letter-spacing:8px;}
+.toc .entries{position:absolute;right:16mm;bottom:62mm;width:100mm;}
+.toc .row{display:flex;align-items:center;justify-content:space-between;margin-bottom:4.5mm;}
+.toc .row .lab{font-family:'Oswald',sans-serif;font-weight:600;font-size:15px;letter-spacing:2px;color:var(--ink);}
+.toc .row .bar{width:34mm;text-align:center;color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;letter-spacing:1px;padding:1.7mm 0;}
+.toc .note{position:absolute;left:16mm;bottom:18mm;width:82mm;font-size:11px;line-height:1.55;color:#444;}
+.toc .note .script{font-size:26px;color:var(--magenta);display:block;margin-bottom:1mm;}
+.toc .mark{position:absolute;right:14mm;bottom:14mm;font-family:'Sacramento',cursive;font-size:22px;color:var(--turq);}
+
+/* ============ PAGES SECTION (photo pleine + titre script) ============ */
+.secpage .photo{position:absolute;inset:0;background-size:cover;background-position:center;}
+.secpage .head{position:absolute;top:10mm;left:0;right:0;text-align:center;z-index:4;}
+.secpage .head .script{font-size:74px;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.45);line-height:1;}
+.secpage .head .under{font-family:'Oswald',sans-serif;font-weight:600;color:#fff;font-size:12px;letter-spacing:8px;text-shadow:0 1px 6px rgba(0,0,0,.6);margin-top:1mm;}
+/* bandeau bas de page section : 3 faits, texte lisible sur fond assombri */
+.secpage .facts{position:absolute;bottom:0;left:0;right:0;padding:34mm 16mm 12mm;color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.94) 0%,rgba(0,0,0,.9) 52%,rgba(0,0,0,.6) 82%,transparent 100%);}
+.secpage .facts .row{display:flex;gap:8mm;}
+.secpage .facts .col{flex:1;font-size:13px;line-height:1.5;}
+.secpage .facts .col .h{display:block;font-family:'Montserrat',sans-serif;font-weight:800;color:var(--gold);font-size:9.5px;letter-spacing:1.5px;margin-bottom:1.5mm;}
+
+/* ============ PAGE 10 : OUTRO ============ */
+.outro{background:var(--navy);}
+.outro .strip{position:absolute;top:0;left:0;right:0;height:74mm;background:url('img/phiphi_view.jpg') center/cover;}
+.outro .strip .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(34,55,79,0) 30%,var(--navy) 100%);}
+.outro .content{position:absolute;top:64mm;left:18mm;right:18mm;color:#fff;text-align:center;}
+.outro .script{font-size:52px;color:#fff;line-height:1;}
+.outro p.txt{font-size:10.5px;line-height:1.6;color:#CBD6E2;width:82%;margin:4mm auto 0;}
+.outro .cards{display:flex;gap:4mm;margin-top:9mm;}
+.outro .card{flex:1;border:1px solid rgba(255,255,255,.25);padding:6mm 2mm 5mm;text-align:center;}
+.outro .card .script{font-size:24px;line-height:1;color:#fff;}
+.outro .card .st{font-family:'Montserrat',sans-serif;font-weight:800;font-size:6.5px;letter-spacing:2px;color:var(--gold);margin-top:1.5mm;}
+.outro .cta{display:inline-block;margin-top:12mm;background:var(--magenta);color:#fff;font-family:'Oswald',sans-serif;font-weight:600;font-size:12px;letter-spacing:3px;padding:3mm 9mm;}
+.outro .credits{position:absolute;bottom:8mm;left:18mm;right:18mm;text-align:center;font-size:7px;color:#7E8FA3;line-height:1.5;}
+
+/* photos strip 3 vignettes (style page passeport) */
+.strip3{display:flex;gap:3mm;height:52mm;margin-bottom:6mm;}
+.strip3 div{flex:1;background-size:cover;background-position:center;}
+.strip3 div.mid{margin-top:-5mm;height:calc(100% + 10mm);}
+
+/* tableau îles */
+.isles{width:100%;border-collapse:collapse;font-size:12.5px;margin-bottom:4mm;}
+.isles th{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--turq);padding:2mm;text-align:left;}
+.isles td{padding:2.7mm 2mm;border-bottom:1px solid #E4E4E4;vertical-align:top;line-height:1.42;}
+.isles td.n{font-family:'Oswald',sans-serif;font-weight:600;font-size:12px;white-space:nowrap;}
+.isles .b{font-family:'Montserrat',sans-serif;font-weight:700;font-size:9px;color:var(--turq);}
+
+/* checklist band */
+.band{background:var(--navy);color:#fff;padding:4.5mm 6mm;margin-top:5mm;}
+.band .bt{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;letter-spacing:3px;color:var(--gold);margin-bottom:2.5mm;}
+.band ul{columns:2;column-gap:8mm;list-style:none;font-size:12px;line-height:1.8;}
+.band li::before{content:'\2713';color:var(--turq);font-weight:700;margin-right:2mm;}
+
+/* mini cards expériences */
+.xp{display:flex;gap:4mm;margin-top:4mm;}
+.xp .c{flex:1;background:var(--cream);padding:4.5mm 4.5mm;border-top:3px solid var(--turq);}
+.xp .c .xt{font-family:'Oswald',sans-serif;font-weight:600;font-size:11.5px;letter-spacing:.5px;margin-bottom:1.2mm;}
+.xp .c p{font-size:11px;line-height:1.48;}
+.xp .c .px{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;color:var(--turq);margin-top:1.2mm;}
+
+/* budget bars */
+.budget{display:flex;gap:5mm;margin:4mm 0 5mm;}
+.bud{flex:1;text-align:center;}
+.bud .amount{font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;}
+.bud .bar{height:3mm;margin:2mm 4mm;}
+.bud .lbl{font-family:'Montserrat',sans-serif;font-weight:800;font-size:8px;letter-spacing:1.5px;}
+.bud .dd{font-size:10.5px;color:#5a5a5a;line-height:1.45;margin-top:1.5mm;}
+
+/* ===== PAGE PLAN 7 JOURS (la recette) ===== */
+.formulas{display:flex;gap:4mm;margin:1mm 0 5mm;}
+.formulas .f{flex:1;border:1px solid #E4E4E4;border-top:4px solid var(--turq);padding:4mm 4mm 4.5mm;background:#fff;}
+.formulas .f.c{border-top-color:#D98C13;} .formulas .f.p{border-top-color:var(--magenta);}
+.formulas .f .ft{font-family:'Montserrat',sans-serif;font-weight:800;font-size:9px;letter-spacing:1.5px;color:var(--navy);}
+.formulas .f .fp{font-family:'Oswald',sans-serif;font-weight:700;font-size:30px;color:var(--turq);line-height:1;margin:1.5mm 0 .3mm;}
+.formulas .f.c .fp{color:#D98C13;} .formulas .f.p .fp{color:var(--magenta);}
+.formulas .f .fw{font-size:9px;color:#777;margin-bottom:3mm;line-height:1.35;}
+.formulas .f ul{list-style:none;font-size:10.5px;line-height:1.5;}
+.formulas .f li{padding:1mm 0;border-top:1px solid #F0F0F0;}
+.formulas .f li:first-child{border-top:none;}
+.formulas .f li b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:7.5px;letter-spacing:.5px;color:var(--grey);display:block;margin-bottom:.3mm;}
+.plan{width:100%;border-collapse:collapse;font-size:10.5px;}
+.plan th{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--navy);padding:2mm 1.5mm;text-align:left;}
+.plan th.c{text-align:center;}
+.plan td{padding:2.5mm 1.8mm;border-bottom:1px solid #E4E4E4;vertical-align:top;line-height:1.42;}
+.plan .day{font-family:'Oswald',sans-serif;font-weight:600;font-size:11.5px;color:var(--navy);white-space:nowrap;}
+.plan .step{font-family:'Montserrat',sans-serif;font-weight:800;font-size:7px;letter-spacing:1px;color:var(--magenta);display:block;margin-bottom:.4mm;}
+.plan .prog b{color:var(--navy);}
+.plan .pr{font-family:'Oswald',sans-serif;font-weight:700;font-size:13px;text-align:center;white-space:nowrap;}
+.plan .pr.r{color:var(--turq);} .plan .pr.c{color:#D98C13;} .plan .pr.p{color:var(--magenta);}
+.plan tr.tot td{background:var(--cream);border-top:2px solid var(--navy);border-bottom:none;padding-top:2.6mm;}
+.plan tr.tot .lb{font-family:'Montserrat',sans-serif;font-weight:800;font-size:8.5px;letter-spacing:1px;color:var(--navy);}
+.plan tr.tot .pr{font-size:14px;}
+
+/* ===== PAGE ITINÉRAIRE PAR BUDGET (1 page = 1 budget) ===== */
+.bhead{display:flex;align-items:stretch;gap:0;margin:1mm 0 5mm;border:1px solid #E4E4E4;}
+.bhead .bp{flex:0 0 42mm;background:var(--turq);color:#fff;text-align:center;padding:4mm 2mm;display:flex;flex-direction:column;justify-content:center;}
+.bhead.c .bp{background:#D98C13;} .bhead.p .bp{background:var(--magenta);}
+.bhead .bp .n{font-family:'Oswald',sans-serif;font-weight:700;font-size:15px;letter-spacing:2px;}
+.bhead .bp .amt{font-family:'Oswald',sans-serif;font-weight:700;font-size:34px;line-height:1;margin-top:1mm;}
+.bhead .bp .amt small{font-size:13px;font-weight:600;}
+.bhead .bd{flex:1;padding:4mm 5mm;display:flex;flex-direction:column;justify-content:center;}
+.bhead .bd .wk{font-family:'Montserrat',sans-serif;font-weight:800;font-size:8.5px;letter-spacing:1px;color:var(--grey);margin-bottom:1.5mm;}
+.bhead .bd p{font-size:12px;line-height:1.45;}
+.itin{width:100%;border-collapse:collapse;font-size:12px;}
+.itin th{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:.5px;text-transform:uppercase;color:#fff;background:var(--navy);padding:2mm 2mm;text-align:left;}
+.itin th.c{text-align:center;}
+.itin td{padding:3.4mm 2mm;border-bottom:1px solid #E7E7E7;vertical-align:top;line-height:1.48;}
+.itin .day{font-family:'Oswald',sans-serif;font-weight:600;font-size:11.5px;color:var(--navy);white-space:nowrap;}
+.itin .step{font-family:'Montserrat',sans-serif;font-weight:800;font-size:7px;letter-spacing:1px;display:block;margin-bottom:.4mm;color:var(--turq);}
+.itin.c .step{color:#D98C13;} .itin.p .step{color:var(--magenta);}
+.itin .prog b{color:var(--navy);}
+.itin .meta{display:block;margin-top:1.6mm;font-size:11px;color:#5a5a5a;line-height:1.5;}
+.itin .meta b{font-family:'Montserrat',sans-serif;font-weight:800;font-size:7.5px;letter-spacing:.5px;color:var(--grey);}
+.itin .pr{font-family:'Oswald',sans-serif;font-weight:700;font-size:14px;text-align:center;white-space:nowrap;color:var(--turq);}
+.itin.c .pr{color:#D98C13;} .itin.p .pr{color:var(--magenta);}
+.itin tr.tot td{background:var(--cream);border-top:2px solid var(--navy);border-bottom:none;padding-top:2.8mm;}
+.itin tr.tot .lb{font-family:'Montserrat',sans-serif;font-weight:800;font-size:8.5px;letter-spacing:1px;color:var(--navy);}
+.itin tr.tot .pr{font-size:16px;}
